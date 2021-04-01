@@ -5,8 +5,7 @@ const hidePeopleBtn = document.querySelector('#hide-people');
 // Виводимо інформацію про персонажів 5 епізоду
 async function getPersonsInfo(event) {
   if (event.target === showPeopleBtn) {
-    const charactersArr = await axios.get(`https://swapi.dev/api/films/2/`)
-    ;
+    const charactersArr = await axios.get(`https://swapi.dev/api/films/2/`);
     //console.log('charactersArr', charactersArr.data);
 
     const personsLink = charactersArr.data.characters.map((link) => {
