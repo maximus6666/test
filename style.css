@@ -1,0 +1,85 @@
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: rgb(70, 60, 45);
+}
+
+h2 {
+  text-align: center;
+}
+
+ul, ul li {
+  padding: 0;
+  margin: 0;
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+
+.show-btn,
+.hide-btn {
+  color: black;
+  background-color: rgb(235, 166, 37);
+  width: 150px;
+  height: 54px;
+  border-radius: 40px;
+  outline: none;
+  border: 4px solid;
+}
+
+.show-btn:focus,
+.hide-btn:focus {
+  background-color: burlywood;
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 25px 0;
+  width: 100%;
+}
+
+.infoBlock {
+  width: 25%;
+  color: rgb(235, 166, 37);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid;
+  padding: 15px;
+}
+
+.next-planets-btn {
+  color: black;
+  background-color: rgb(233, 221, 198);
+  width: 100px;
+  border-radius: 100px;
+  outline: none;
+  border: 4px solid rgb(235, 166, 37);
+  margin: 15px;
+}
+
+.planet-info-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.planet-info-block ul li {
+  font-size: 25px;
+  color: white;
+}
+
+.hide {
+  display: none;
+}
+
+.display {
+  display: block;
+}
