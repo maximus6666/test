@@ -1,44 +1,19 @@
 const showPeopleBtn = document.querySelector('#show-people');
 const hidePeopleBtn = document.querySelector('#hide-people');
 
-// const charactersArr = axios.get('https://swapi.dev/api/films/2')
-//   .then((res) => {
-//     const data = res.data;
-//     const characters = data.characters;
-
-//     return characters;
-//   });
-
-// const personsInfo = charactersArr.then((res) => {
-//     return res.map(async (character) =>{ 
-//      let req = character.replace('http', 'https');
-//       console.log(req);
-//      return await axios.get(req)
-//       .then((res) => {
-//         return res.data;
-//       });});
-//   })
-//   .then((dataArr) => {
-//     console.log(dataArr);
-//     const arr = dataArr.map((a) => a.then((data) => {
-//       return {
-//         name: data.name,
-//         birthday: data.birth_year,
-//         male: data.gender
-//       };
-//     }));
-//     return arr;
-//   });
 
 // Виводимо інформацію про персонажів 5 епізоду
 async function getPersonsInfo(event) {
   if (event.target === showPeopleBtn) {
-    const charactersArr = axios.get(`https://swapi.dev/api/films/2/`)
+    const charactersArr = await axios.get(`https://swapi.dev/api/films/2/`)
     ;
-    //console.log('charactersArr', charactersArr);
+    //console.log('charactersArr', charactersArr.data);
 
     const personsLink = charactersArr.data.characters.map((link) => {
-      return link.replace('http', 'https');
+
+      const corrlink = link.replace('http', 'https');
+      return corrlink;
+
     });
     const arrInfoPersons = personsLink.map((link) => {
       return axios.get(link).then((res) => {
@@ -50,23 +25,6 @@ async function getPersonsInfo(event) {
       });
     })
     console.log('arrInfoPersons', arrInfoPersons);
-
-    // const personsobj = await arrPersons.map(async (el) => {
-    //   return await el;
-
-    // });
-
-    // const per =  personsobj.map(async (el) => {
-    //   console.log(await el.data);
-    //   return {
-    //     name: el.name,
-    //     birthday: el.birth_year,
-    //     male: el.gender
-    //   }
-    // })
-    // console.log('per', per);
-
-
 
     const wrapper = document.createElement('div');
     wrapper.classList.add('wrapper');
@@ -88,28 +46,6 @@ async function getPersonsInfo(event) {
       infoBlock.append(name, birthday, male);
 
     });
-
-    // personsInfo.then((promisesArr) => {
-    //   promisesArr.map((promis, i) => {
-    //     promis.then((res) => {
-
-    //       const infoBlock = document.createElement('div');
-    //       const name = document.createElement('h2');
-    //       const birthday = document.createElement('h5');
-    //       const male = document.createElement('h5');
-
-    //       name.innerText = res.name;
-    //       birthday.innerText = 'Was born: ' + res.birthday;
-    //       male.innerText = 'Male: ' + res.male;
-
-    //       infoBlock.classList.add('infoBlock');
-
-    //       wrapper.append(infoBlock);
-    //       infoBlock.append(name, birthday, male);
-    //     });
-    //   });
-    // });
-
     document.body.append(wrapper);
   }
   showPeopleBtn.removeEventListener('click', getPersonsInfo);
