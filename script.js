@@ -33,7 +33,7 @@ const hidePeopleBtn = document.querySelector('#hide-people');
 // Виводимо інформацію про персонажів 5 епізоду
 async function getPersonsInfo(event) {
   if (event.target === showPeopleBtn) {
-    const charactersArr = await axios.get('https://swapi.dev/api/films/2');
+    const charactersArr = await axios.get("https://swapi.dev/api/films/2");
     //console.log('charactersArr', charactersArr);
 
     const personsLink = await charactersArr.data.characters.map((link) => {
@@ -137,7 +137,7 @@ async function getPlanetsInfo() {
   nextBtn.classList.add('next-planets-btn');
   nextBtn.innerText = 'Next';
 
-  const planetInfo = await axios.get('https://swapi.dev/api/planets/');
+  const planetInfo = await axios.get("https://swapi.dev/api/planets/");
   const planetsDataArr = await planetInfo.data.results;
   const planetsNameList = planetsDataArr.map((planet) => planet.name);
 
