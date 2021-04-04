@@ -119,9 +119,10 @@ hidePlanetBtn.addEventListener('click', hidePlanetsInfo);
 let currentPage = 'https://swapi.dev/api/planets/';
 nextBtn.addEventListener('click', async () => {
   const page = await axios.get(currentPage);
-  const nextPage = await page.data.next;
+  let nextPage = await page.data.next;
   if (nextPage) {
-    nextPage.replace('http', 'https');
+    nextPage = nextPage.replaceAll('http', 'https');
+    console.log(nextPage);
     getPlanetsInfo(nextPage);
     currentPage = nextPage;
   } else {
