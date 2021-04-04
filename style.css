@@ -1,22 +1,33 @@
-
 body {
   font-family: 'Roboto', sans-serif;
   background-color: rgb(70, 60, 45);
+}
+
+h1 {
+  text-align: center;
+  color: white;
 }
 
 h2 {
   text-align: center;
 }
 
-ul, ul li {
+ul,
+ul li {
   padding: 0;
   margin: 0;
+}
+
+input {
+  width: 150px;
+  height: 35px;
 }
 
 .btn-wrapper {
   display: flex;
   justify-content: center;
   margin-bottom: 25px;
+  align-items: center;
 }
 
 
@@ -36,7 +47,7 @@ ul, ul li {
   background-color: burlywood;
 }
 
-.wrapper {
+.person-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -45,13 +56,13 @@ ul, ul li {
 }
 
 .infoBlock {
-  width: 25%;
+  width: 20%;
   color: rgb(235, 166, 37);
   display: flex;
   flex-direction: column;
   justify-content: center;
   border: 1px solid;
-  padding: 15px;
+  padding: 5px;
 }
 
 .next-planets-btn {
